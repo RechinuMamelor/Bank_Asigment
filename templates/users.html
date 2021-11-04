@@ -1,0 +1,92 @@
+<h1>Account info:</h1>
+<br>
+<br>
+<table border = 1 style="width: 100%; ">
+  {% for user in userDetails %}
+  <tr>
+    <td> customer id: {{user[0]}} </td>
+    <td> name: {{user[1]}} </td>
+      <td> lastname: {{user[2]}} </td>
+   <td> Age: {{user[3]}} </td>
+    <td> CPR: {{user[4]}} </td>
+   <td> Adr: {{user[5]}} </td>
+    <td> Postal code: {{user[6]}} </td>
+  <td> City; {{user[7]}} </td>
+  <td> Country: {{user[8]}} </td>
+  </tr>
+  {% endfor %}
+</table>
+<br/>
+<br/>
+<table border = 1  style="width: 100%;" >
+{% for user in userDet %}
+  <tr>
+    <td> AccNo.: {{user[0]}} </td>
+    <td> Balance: {{user[2]}} </td>
+      <td> CardNo.: {{user[3]}} </td>
+   <td> ExpDate: {{user[4]}} </td>
+       <td> Currency {{user[6]}} </td>
+    <td> Type: {{user[7]}} </td>
+  <td> Card type: {{user[8]}} </td>
+  </tr>
+  {% endfor %}
+</table>
+
+<br>
+<br>
+<br>
+<br>
+<h2>Recent Transactions:</h2>
+
+<table border = 1  style="width: 70%;" >
+{% for user in trans %}
+  <tr>
+     <td> Receiver: {{user[3]}} </td>
+      <td> Amount: {{user[4]}} </td>
+    <td> Currency: {{user[5]}} </td>
+  <td> Date: {{user[6]}} </td>
+  </tr>
+  {% endfor %}
+</table>
+
+
+<form method="POST" action="http://127.0.0.1:5003/ATMt">
+
+  <br>
+   International transfers.
+  <button type="submit" type="str" name="cpr" value="{{ userData }}">
+      <input type="hidden" name="input" value="1"/>
+        Allow
+      </button>
+    <button type="submit" type="str" name="cpr" value="{{ userData }}">
+      <input type="hidden" name="input" value="3"/>
+        Lock
+      </button>
+
+</form>
+
+
+<form method="POST" action="http://127.0.0.1:5003/ATMt">
+
+  <br>
+   international ATM withdrawals.
+  <button type="submit" type="str" name="cpr" value="{{ userData }}">
+      <input type="hidden" name="input" value="2"/>
+        Allow
+      </button>
+    <button type="submit" type="str" name="cpr" value="{{ userData }}">
+      <input type="hidden" name="input" value="4"/>
+        Lock
+      </button>
+</form>
+
+
+
+<form method="POST" action="http://127.0.0.1:5002/quit">
+
+  <br>
+    <button type="submit" type="str" name="cpr" value="{{ userData }}">
+        quit
+      </button>
+
+</form>

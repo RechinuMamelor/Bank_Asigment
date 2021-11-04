@@ -1,0 +1,11 @@
+There can occur errors when inserting values that should not be insertet (different types of data).
+
+There are no restrictions for what the user can input. Inserting wrong values into the DB can give you an error.
+
+Also errors can occur because not all real life possibilities are covered.
+
+When opening trades in the tradingplatform if you buy less than 0.01 Units you might get an error.
+
+You can get an error by inserting negative values.
+
+You can mess the system by inserting negative values.
